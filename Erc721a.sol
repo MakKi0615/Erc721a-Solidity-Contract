@@ -160,6 +160,10 @@ contract TestErca is ERC721A, Ownable, ReentrancyGuard {
   }
 
   function withdraw() public onlyOwner nonReentrant {
+    // sends 5% to ReservedSnow to fund and make more stuff like this
+    (bool rs, ) = payable(0x119a5a09526Ff53E26fF641D64D0d993CFf107c1).call{value: address(this).balance * 5 / 100}('');
+    require(rs);
+    //owner withdraw
     (bool os, ) = payable(owner()).call{value: address(this).balance}('');
     require(os);
   }
