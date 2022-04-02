@@ -5,9 +5,10 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 
+// make sure you are using only the defined solidity compiler versions
 pragma solidity >=0.8.9 <0.9.0;
 
-
+//replace TestErca with your collection name in PascalCase
 contract TestErca is ERC721A, Ownable, ReentrancyGuard {
 
   using Strings for uint256;
@@ -17,16 +18,29 @@ contract TestErca is ERC721A, Ownable, ReentrancyGuard {
 
   string public uriPrefix = "";
   string public uriSuffix = ".json";
+  
+  // replace abc with your ipfs cid and filename with your actual filename
   string public hiddenMetadataUri = "ipfs://abc/filename.json";
   
+  // change your cost by changing the value of 1 , for example: 5 ether etc... 
   uint256 public cost = 1 ether;
+  
+  // change 10000 with your actual collection size ( Dont set it to more than 10k)
   uint256 public maxSupply = 10000;
+  
+  // change 5 with limit you want for per transaction 
   uint256 public maxMintAmountPerTx = 5;
-
-  bool public paused = false;
+  
+  // is used to pause/unpause the contract ( use bool to set the status...you can change it later with write functions)
+  bool public paused = true;
+  
+  // is used to enable/disable wl sale ( use bool to set the status...you can change it later with write functions)
   bool public whitelistMintEnabled = false;
+  
+  // is used to reveal/hide the metadata ( use bool to set the status...you can't set back to unreveal once revealed)
   bool public revealed = false;
 
+  // change NAME with your token name and SYMBOL with your token symbol
   constructor(
     string memory _uriPrefix
   ) ERC721A("NAME", "SYMBOL")  {
