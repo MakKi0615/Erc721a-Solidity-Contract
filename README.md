@@ -23,7 +23,7 @@
    the following code for production.
    ReservedSnow will not be liable in any way if for the use 
    of the code. That being said, the code has been tested 
-   to the best of the developers' knowledge to work as intended.
+   to the best of the developer's knowledge to work as intended.
    If you find any problems please let the dev know in order to improve
    the contract and fix vulnerabilities if there is one.
 
