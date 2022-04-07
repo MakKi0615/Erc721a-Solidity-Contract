@@ -1,5 +1,18 @@
 // SPDX-License-Identifier: MIT
 
+// Amended by ReservedSnow
+
+/**
+    !Disclaimer!
+    please review this code on your own before using any of
+    the following code for production.
+    ReservedSnow will not be liable in any way if for the use 
+    of the code. That being said, the code has been tested 
+    to the best of the developers' knowledge to work as intended.
+    If you find any problems please let the dev know in order to improve
+    the contract and fix vulnerabilities if there is one.
+*/
+
 import 'erc721a/contracts/ERC721A.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
@@ -149,6 +162,10 @@ contract TestErca is ERC721A, Ownable, ReentrancyGuard {
 
   function setPaused(bool _state) public onlyOwner {
     paused = _state;
+  }
+
+  function setmaxSupply(uint256 _maxSupply) public onlyOwner {
+    maxSupply = _maxSupply;
   }
 
   function setMerkleRoot(bytes32 _merkleRoot) public onlyOwner {
