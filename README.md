@@ -29,3 +29,4 @@
 
 ## Support the dev 
 
+https://crypto-to.me/ReservedSnow
